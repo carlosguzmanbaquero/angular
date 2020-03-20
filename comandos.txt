@@ -1,0 +1,15 @@
+contenido obtenido de la pagina:
+http://www.tutorialesprogramacionya.com/angularya/
+
+instalar angular
+npm install -g @angular/cli
+
+crear proyecto
+ng new proyect_name
+
+ejecutar servidor
+ng serve -o
+
+crear componente
+ng generate component component_name
+
