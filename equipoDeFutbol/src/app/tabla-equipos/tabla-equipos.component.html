@@ -1,0 +1,26 @@
+<section>
+    <h1>Equipo</h1>
+    <div class="tbl-header">
+        <table cellpadding="0" cellspacing="1" border="0">
+            <thead>
+                <tr>
+                    <th *ngFor="let header of tituloTablas">{{header}}</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <div class="tbl-content"> 
+        <table cellpadding="0" cellspacing="1" border="0">
+            <tbody>
+                <tr *ngFor="let equipo of (equipos$ | async)">
+                    <th>{{equipo.nombre}}</th>
+                    <th>{{equipo.pais}}</th>
+                    <th>
+                        <p *ngFor="let jugador of equipo.jugadores">{{jugador.nombre}}</p>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
