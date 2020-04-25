@@ -1,0 +1,45 @@
+<section>
+    <!--
+    <h1>Jugadores</h1>
+    <div class="tbl-header">
+        <table cellpadding="0" cellspacing="1" border="0">
+            <thead>
+                <tr>
+                    <th *ngFor="let header of tituloTablas">{{header}}</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+-->
+<BR/>
+<div align="center"> 
+    <button (click)="crearJugador()">Nuevo Jugador</button>
+</div>
+
+    <div align="center"> 
+        <h1>Jugadores</h1>
+        <table cellpadding="0" cellspacing="1" border="0">
+            <thead>
+                <tr>
+                    <th *ngFor="let header of tituloTablas">{{header}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let jugador of (jugadores$ | async)">
+                    <th>{{jugador.nombre}}</th>
+                    <th>{{jugador.apellido}}</th>
+                    <th>{{jugador.posicion}}</th>
+                    <th>{{jugador.peso}}</th>
+                    <th>{{jugador.altura}}</th>
+                    <th>{{jugador.nacionalidad}}</th>
+                    <th>{{jugador.izquierdo}}</th>
+                    <th>{{jugador.apellido}}</th>
+                    <th>
+                        <button>Editar</button>
+                        <button>Borrar</button>
+                    </th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>

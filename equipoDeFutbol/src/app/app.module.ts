@@ -9,11 +9,15 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { TablaEquiposComponent } from './tabla-equipos/tabla-equipos.component';
+import { TablaJugadoresComponent } from './tabla-jugadores/tabla-jugadores.component';
+import { DialogoJugadorComponent } from './dialogo-jugador/dialogo-jugador.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TablaEquiposComponent
+    TablaEquiposComponent,
+    TablaJugadoresComponent,
+    DialogoJugadorComponent
   ],
   imports: [
     BrowserModule,
