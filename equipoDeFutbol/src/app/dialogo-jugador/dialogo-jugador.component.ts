@@ -20,11 +20,7 @@ export class DialogoJugadorComponent implements OnInit {
     label: key,
     key: Countries[key]
   }));
-  /*
-  private posiciones = Object.keys(NumeroPosicion).map(key => ({
-    label: key,
-    key: NumeroPosicion[key]
-  }));*/
+  
   public posiciones = Object.keys(NumeroPosicion).slice(Object.keys(NumeroPosicion).length/2).map(key => ({
     label: key,
     key: NumeroPosicion[key]
@@ -60,6 +56,7 @@ private crearJugador(jugador){
     }
     this.equipoService.editarEquipo(equipoFormateado);
   }
+    
 }
 
 private editarJugador(jugador){

@@ -3,6 +3,7 @@ import { Jugadores,NumeroPosicion,Countries } from '../interfaces/jugadores';
 import { JugadorService, JugadorTituloTablas } from '../service/jugador.service';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { EquipoService } from '../service/equipo.service';
 
 @Component({
   selector: 'app-tabla-jugadores',
@@ -16,7 +17,7 @@ export class TablaJugadoresComponent implements OnInit {
   public seleccionJugador: Jugadores;
   public mostrarModal: boolean;
 
-  constructor(private jugadorService: JugadorService) { 
+  constructor(private jugadorService: JugadorService, private equiposService: EquipoService) { 
   }
 
   ngOnInit(): void {
@@ -56,7 +57,22 @@ export class TablaJugadoresComponent implements OnInit {
     });
   }
 
+  eliminarJugador(jugador: Jugadores){
+    this.equiposService.getEquipos().pipe(take(1)).subscribe(equipos=>{
+      const equipoAModificar=equipos[0].jugadores? equipos[0].jugadores.filter((ju : any)=>ju.key!==jugador.$key) : equipos[0].jugadores;
+      const nuevoEquipo= {
+        ...equipos[0],
+        jugadores: [...equipoAModificar]
+      };
+      this.jugadorService.borrarjugador(jugador.$key);
+      this.equiposService.editarEquipo(nuevoEquipo);
+    });
+
+  }
+
   cerrarDialogo(){
+    this.mostrarModal=true;
+    this.seleccionJugador=null;
     this.mostrarModal=false;
   }
 }
