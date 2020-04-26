@@ -33,9 +33,8 @@
                     <th>{{jugador.altura}}</th>
                     <th>{{jugador.nacionalidad}}</th>
                     <th>{{jugador.izquierdo}}</th>
-                    <th>{{jugador.apellido}}</th>
                     <th>
-                        <button>Editar</button>
+                        <button class="submit" (click)="editarJugador(jugador)">Editar</button>
                         <button>Borrar</button>
                     </th>
                 </tr>
@@ -43,3 +42,4 @@
         </table>
     </div>
 </section>
+<app-dialogo-jugador *ngIf="mostrarModal" [jugador]="seleccionJugador" (closeDialog)="cerrarDialogo()"></app-dialogo-jugador>

@@ -4,7 +4,7 @@ import { AngularFireList, AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-export  const JugadorTituloTablas=['Nombre', 'Apellido','Posicion','Peso','Altura', ,'Nacionalidad','Izquierdo','Editar'];
+export  const JugadorTituloTablas=['Nombre', 'Apellido','Posicion','Peso','Altura','Nacionalidad','Izquierdo','Editar'];
 
 @Injectable({
   providedIn: 'root'
@@ -35,6 +35,8 @@ export class JugadorService {
   editarJugador(jugador){
     const $key=jugador.$key;
     this.borrarjugador($key);
-    this.db.list('/jugadores').update($key, jugador);
+    //this.db.list('/jugadores').update($key, jugador);
+    delete jugador.$key;
+    this.jugadorDb.push(jugador);
   }
 }

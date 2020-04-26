@@ -44,8 +44,19 @@ export class TablaJugadoresComponent implements OnInit {
     this.mostrarModal=true;
     this.seleccionJugador=null;
     setTimeout(()=>{
-      window.location.replace('#open');
+      window.location.replace('#open-modal');
     });
   }
 
+  editarJugador(jugador: Jugadores){
+    this.seleccionJugador= {... jugador};
+    this.mostrarModal=true;
+    setTimeout(()=>{
+      window.location.replace('#open-modal');
+    });
+  }
+
+  cerrarDialogo(){
+    this.mostrarModal=false;
+  }
 }

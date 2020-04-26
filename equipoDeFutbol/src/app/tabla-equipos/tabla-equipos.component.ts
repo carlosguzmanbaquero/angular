@@ -1,4 +1,4 @@
-import { Countries } from './../interfaces/jugadores';
+import { Countries, Jugadores, NumeroPosicion } from './../interfaces/jugadores';
 import { Equipos } from './../interfaces/equipos';
 import { EquipoService, EquipoTituloTablas } from './../service/equipo.service';
 import { Component, OnInit } from '@angular/core';
@@ -20,10 +20,22 @@ export class TablaEquiposComponent implements OnInit {
     this.equipos$ = this.equipoService.getEquipos();
     this.equipoService.getEquipos().pipe(take(1)).subscribe(equipos => {
       if(equipos.length === 0){
+        /*
+        const jugador: Jugadores = {
+          nombre:'Carlos',
+          apellido:'Guzman',
+          posicion: NumeroPosicion.arquero,
+          peso:75,
+          altura:1.65,
+          nacionalidad:Countries.Colombia,
+          izquierdo:false
+        };
+        */
+
         const equipo: Equipos = {
           nombre: 'Colombia',
           pais: Countries.Colombia,
-          jugadores: null
+          jugadores: []
         };
         this.equipoService.agregarEquipo(equipo);
       }

@@ -19,7 +19,7 @@ export class EquipoService {
   getEquipos():Observable<Equipos[]>{
     return this.equipoDb.snapshotChanges().pipe(
       map(changes => {
-        return changes.map(c=>({$key:c.payload.key, ...c.payload.val()}));
+        return changes.map(c=>({ $key : c.payload.key, ...c.payload.val()}));
       })
     );
   }
@@ -33,8 +33,12 @@ export class EquipoService {
   }
 
   editarEquipo(equipo){
+    //alert('jugadores '+JSON.parse(equipo));
     const $key=equipo.$key;
     this.borrarEquipo($key);
+    delete equipo.$key;
     this.db.list('/equipos').update($key, equipo);
+    //delete equipo.$key;
+    //return this.equipoDb.push(equipo);
   }
 }
