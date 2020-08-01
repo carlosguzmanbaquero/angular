@@ -1,0 +1,42 @@
+<input type="text" [(ngModel)]="title">
+{{ title }}
+
+<div *ngIf="title==='tienda'; then contenido else contenidoElse"></div>
+
+<ng-template #contenido>
+  contenido del bloque
+</ng-template>
+
+<ng-template #contenidoElse>
+  contenido del bloque else
+</ng-template>
+
+<div *ngIf="title==='carlos'">carlos</div>
+<div *ngIf="title==='alberto'">alberto</div>
+<div *ngIf="title==='guzman'">guzman</div>
+
+<div [ngSwitch]="title">
+  <p *ngSwitchCase="'carlos'">carlos</p>
+  <p *ngSwitchCase="'alberto'">alberto</p>
+  <p *ngSwitchCase="'guzman'">guzman</p>
+  <p *ngSwitchDefault>no hay resultado</p>
+</div>
+
+<button (click)="agregarItem()">Agregar item</button>
+
+<ul>
+  <li *ngFor="let nombre of items; index as i">
+    {{i+1}} {{nombre}}
+    <button (click)="eliminarItem(i)">eliminar</button>
+  </li>
+  <li *ngIf="items==null || items.length===0">
+    la lista se encuentra vacia
+  </li>
+</ul>
+
+<div *ngFor="let product of products">
+  {{ product.title }}
+  {{ product.price }}
+  <img [src]="product.image" alt="">
+</div>
+
