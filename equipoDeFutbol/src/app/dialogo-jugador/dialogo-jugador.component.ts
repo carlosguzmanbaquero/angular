@@ -94,6 +94,7 @@ onSubmit(formularioJugadores: NgForm){
     this.editarJugador(jugadorACrear);
   }else{
     this.crearJugador(jugadorACrear);
+    formularioJugadores.reset();
   }
   
   window.location.replace('#');
