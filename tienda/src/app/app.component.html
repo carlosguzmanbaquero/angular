@@ -35,8 +35,6 @@
 </ul>
 
 <div *ngFor="let product of products">
-  {{ product.title }}
-  {{ product.price }}
-  <img [src]="product.image" alt="">
+  <app-product (productClicked)="clickProduct($event)" [product]="product"></app-product>
 </div>
 
