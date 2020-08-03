@@ -1,6 +1,9 @@
 <input type="text" [(ngModel)]="title">
 {{ title }}
 
+<input type="text" [(ngModel)]="power">
+{{ power | exponential }}
+
 <div *ngIf="title==='tienda'; then contenido else contenidoElse"></div>
 
 <ng-template #contenido>
@@ -34,7 +37,9 @@
   </li>
 </ul>
 
-<div *ngFor="let product of products">
-  <app-product (productClicked)="clickProduct($event)" [product]="product"></app-product>
+<div class="product-grid">
+  <app-product *ngFor="let product of products" 
+    (productClicked)="clickProduct($event)" [product]="product">
+  </app-product>
 </div>
 

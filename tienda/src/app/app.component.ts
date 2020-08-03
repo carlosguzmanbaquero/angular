@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Product } from './product.model';
+import { Product } from './model/product.model';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,8 @@ export class AppComponent {
   title = 'tienda';
 
   items = ['carlos', 'alberto', 'guzman'];
+
+  power = 2;
 
   products: Product[] = [
     {
@@ -61,7 +63,7 @@ export class AppComponent {
   }
 
   eliminarItem(index: number){
-    this.items.splice(index,1);
+    this.items.splice(index, 1);
   }
 
   clickProduct(id: number){
