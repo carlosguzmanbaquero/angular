@@ -1,45 +1,11 @@
-<input type="text" [(ngModel)]="title">
-{{ title }}
-
-<input type="text" [(ngModel)]="power">
-{{ power | exponential }}
-
-<div *ngIf="title==='tienda'; then contenido else contenidoElse"></div>
-
-<ng-template #contenido>
-  contenido del bloque
-</ng-template>
-
-<ng-template #contenidoElse>
-  contenido del bloque else
-</ng-template>
-
-<div *ngIf="title==='carlos'">carlos</div>
-<div *ngIf="title==='alberto'">alberto</div>
-<div *ngIf="title==='guzman'">guzman</div>
-
-<div [ngSwitch]="title">
-  <p *ngSwitchCase="'carlos'">carlos</p>
-  <p *ngSwitchCase="'alberto'">alberto</p>
-  <p *ngSwitchCase="'guzman'">guzman</p>
-  <p *ngSwitchDefault>no hay resultado</p>
+<router-outlet></router-outlet>
+<!--
+<div>
+  <ul>
+    <li><a href="home">Home</a></li>
+    <li><a href="products">Products</a></li>
+    <li><a href="contact">Contact</a></li>
+    <li><a href="demo">Demo</a></li>
+  </ul>
 </div>
-
-<button (click)="agregarItem()">Agregar item</button>
-
-<ul>
-  <li *ngFor="let nombre of items; index as i">
-    {{i+1}} {{nombre}}
-    <button (click)="eliminarItem(i)">eliminar</button>
-  </li>
-  <li *ngIf="items==null || items.length===0">
-    la lista se encuentra vacia
-  </li>
-</ul>
-
-<div class="product-grid">
-  <app-product *ngFor="let product of products" 
-    (productClicked)="clickProduct($event)" [product]="product">
-  </app-product>
-</div>
-
+-->
