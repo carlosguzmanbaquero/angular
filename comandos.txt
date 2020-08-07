@@ -4,17 +4,42 @@ http://www.tutorialesprogramacionya.com/angularya/
 //instalar angular
 npm install -g @angular/cli
 
+//version de angular
+ng version
+ng -v
+
 //crear proyecto
 ng new proyect_name
+
+//crear proyecto con rutas
+ng new pryect_name --routing
 
 //ejecutar servidor
 ng serve -o
 
 //crear componente
 ng generate component component_name
+ng g c
 
-//crear proyecto con rutas
-ng new pryect_name --routing
+//crear pipe
+ng g p pipes/pipe_name
+
+//ejecutar lint para verificar errores en el proyecto
+ng lint
+
+//crear directiva
+ng g d directive/directive_name
+
+//crear servicio
+ng g s services/service_nameng lint
+
+//crear un modulo (shared and core)
+ng g m name_module
 
 //guardar libreria firebase en las referencias del package
 npm i -s firebase angularfire2
+
+
+
+
+
