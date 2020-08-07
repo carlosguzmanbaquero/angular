@@ -31,7 +31,9 @@
               "src/styles.scss",
               "./node_modules/swiper/swiper-bundle.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/style-page-not-found.js"
+            ]
           },
           "configurations": {
             "production": {
