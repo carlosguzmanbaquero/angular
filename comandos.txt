@@ -36,13 +36,27 @@ ng g s services/service_nameng lint
 //crear un modulo (shared and core)
 ng g m name_module
 
+//crear un modulo con routing
+ng g m name_module --routing
+
 //crear guards
 ng g g guard_name
 
 //guardar libreria firebase en las referencias del package
 npm i -s firebase angularfire2
 
+//instalar angular material
+ng add @angular/material
 
+//instalar schematic
+ng add @angular/cdk
 
+//generar componente material address form
+ng generate @angular/material:address-form name_form
+
+//generar navegacion
+ng generate @angular/material:nav name_nav
+ng generate @angular/material:dashboard admin/components/dashboard
+ng generate @angular/material:table admin/components/list-products
 
 
