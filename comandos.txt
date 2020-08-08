@@ -36,6 +36,9 @@ ng g s services/service_nameng lint
 //crear un modulo (shared and core)
 ng g m name_module
 
+//crear guards
+ng g g guard_name
+
 //guardar libreria firebase en las referencias del package
 npm i -s firebase angularfire2
 
