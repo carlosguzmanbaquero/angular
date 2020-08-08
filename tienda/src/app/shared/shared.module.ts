@@ -17,6 +17,12 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     RouterModule
+  ],
+  exports: [
+    ExponentialPipe,
+    HighlightDirective,
+    HeaderComponent,
+    FooterComponent
   ]
 })
 export class SharedModule { }
