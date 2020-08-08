@@ -1,9 +1,26 @@
-<h3>Componente producto</h3>
+<mat-card>
+    <mat-card-header>
+        <mat-card-title>{{ product.title | uppercase}}</mat-card-title>
+        <mat-card-subtitle>{{ product.price | currency:'COP ' }}</mat-card-subtitle>
+    </mat-card-header>
+    <div class="crop-image">
+        <img [src]="product.image">
+    </div>
+    <mat-card-content>
+        <p>{{ product.description | slice:0:20}}</p>
+    </mat-card-content>
+    <mat-card-actions>
+        <a mat-raised-button [routerLink]="['/products', product.id]">Ver detalle</a>
+        <button mat-raised-button color="primary" (click)="agregarCarrito()">Agergar</button>
+    </mat-card-actions>
+</mat-card>
 
+<!--
 <h3 appHighlight>{{ product.title | uppercase}}</h3>
 <img [src]="product.image">
 <strong>{{ product.price | currency:'COP ' }}</strong>
 <p>{{ product.description | slice:0:20}}</p>
 <p>{{ today | date:'dd-MM-yyyy' }}</p>
-<button (click)="agregarCarrito()">Agergar</button>
+<button mat-flat-button color="primary" (click)="agregarCarrito()">Agergar</button>
 <a [routerLink]="['/products', product.id]">Ver detalle</a>
+-->
