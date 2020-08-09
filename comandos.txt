@@ -68,5 +68,9 @@ ng serve -c=stag
 //compilar y hacer build al proyecto
 ng build -c=stag
 
+//crear clase
+ng g class name_class
+
+
 
 
