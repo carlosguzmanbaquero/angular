@@ -9,16 +9,25 @@ import { ListProductsComponent } from './components/list-products/list-products.
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { MaterialModule } from '../material/material.module';
+import { FormProductComponent } from './components/form-product/form-product.component';
+import { ProductEditComponent } from './components/product-edit/product-edit.component';
 
 @NgModule({
-  declarations: [ProductFormComponent, NavComponent, DashboardComponent, ListProductsComponent, ProductsListComponent],
+  declarations: [
+    ProductFormComponent,
+    NavComponent,
+    DashboardComponent,
+    ListProductsComponent,
+    ProductsListComponent,
+    FormProductComponent,
+    ProductEditComponent
+  ],
   imports: [
     CommonModule,
     AdminRoutingModule,
     ReactiveFormsModule,
     MaterialModule,
     LayoutModule,
-    
   ]
 })
 export class AdminModule { }
