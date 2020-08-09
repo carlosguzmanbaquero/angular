@@ -7,6 +7,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '../material/material.module';
+import { DeleteRepeatsPipe } from './pipes/delete-repeats/delete-repeats.pipe';
+import { RepeatNumberPipe } from './pipes/repeat-number/repeat-number.pipe';
+import { GroupProductsPipe } from './pipes/group-products/group-products.pipe';
 
 
 @NgModule({
@@ -14,7 +17,10 @@ import { MaterialModule } from '../material/material.module';
     ExponentialPipe,
     HighlightDirective,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DeleteRepeatsPipe,
+    RepeatNumberPipe,
+    GroupProductsPipe
   ],
   imports: [
     CommonModule,
@@ -26,7 +32,10 @@ import { MaterialModule } from '../material/material.module';
     ExponentialPipe,
     HighlightDirective,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    DeleteRepeatsPipe,
+    RepeatNumberPipe,
+    GroupProductsPipe
   ]
 })
 export class SharedModule { }

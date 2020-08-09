@@ -17,6 +17,6 @@ export class CartService {
   addCart(product: Product){
     this.products = [...this.products, product];
     this.cart.next(this.products);
-    console.log(this.cart);
+    console.log(this.products);
   }
 }
