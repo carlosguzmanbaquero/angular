@@ -59,4 +59,14 @@ ng generate @angular/material:nav name_nav
 ng generate @angular/material:dashboard admin/components/dashboard
 ng generate @angular/material:table admin/components/list-products
 
+//compilar para produccion
+ng build --prod
+
+//compilar para otro ambiente creado con anterioridad (stag)
+//correr
+ng serve -c=stag
+//compilar y hacer build al proyecto
+ng build -c=stag
+
+
 

@@ -7,7 +7,14 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatTableModule } from '@angular/material/table';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
   declarations: [],
@@ -19,22 +26,33 @@ import { MatCardModule } from '@angular/material/card';
     MatBadgeModule,
     MatCardModule,
     MatInputModule,
-    MatButtonModule,
     MatSelectModule,
     MatRadioModule,
-    MatCardModule,
+    MatTableModule,
+    MatSidenavModule,
+    MatListModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatPaginatorModule,
+    MatSortModule
   ],
   exports: [
+    CommonModule,
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
     MatBadgeModule,
     MatCardModule,
     MatInputModule,
-    MatButtonModule,
     MatSelectModule,
     MatRadioModule,
-    MatCardModule,
+    MatTableModule,
+    MatSidenavModule,
+    MatListModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatPaginatorModule,
+    MatSortModule
   ]
 })
 export class MaterialModule { }
