@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "store-d911a": {
+      "hosting": {
+        "tienda": [
+          "store-d911a"
+        ]
+      }
+    }
+  }
+}
