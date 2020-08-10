@@ -44,6 +44,7 @@ ng g g guard_name
 
 //guardar libreria firebase en las referencias del package
 npm i -s firebase angularfire2
+ng add @angular/fire
 
 //instalar angular material
 ng add @angular/material
@@ -70,7 +71,5 @@ ng build -c=stag
 
 //crear clase
 ng g class name_class
-
-
 
 
