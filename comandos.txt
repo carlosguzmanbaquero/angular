@@ -77,7 +77,16 @@ ng g class name_class
 firebase init
 firebase deploy
 
+//instalar librerias de css
+npm install bootstrap --save-exact
+npm install @fortawesome/fontawesome-free --save-exact
 
+//referenciar estilos en angular.json
+  ""styles"": [
+    ""node_modules/bootstrap/dist/css/bootstrap.css"",
+    ""node_modules/@fortawesome/fontawesome-free/css/all.css"",
+    ""src/styles.css""
+  ]
 
 
 
