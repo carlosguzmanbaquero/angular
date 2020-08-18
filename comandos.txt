@@ -88,5 +88,11 @@ npm install @fortawesome/fontawesome-free --save-exact
     ""src/styles.css""
   ]
 
+//actualizar ultima version del cli
+npm i -g @angular/cli@latest
+
+//actualizar las versiones del proyecto
+ng update
+
 
 
