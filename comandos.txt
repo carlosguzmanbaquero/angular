@@ -109,5 +109,18 @@ ng test --watch=false --codeCoverage=true
 //ejecutar el reporte generado coverage
 http-server coverage/name_reporte
 
+//descargar imagen de nginx en docker
+docker pull nginx:alpine
 
+//ejecutar nginx
+docker run -d -p 8080:80 nginx:alpine
+
+//ejecutar nginx con volumen
+sudo docker run -d -p 8080:80 -v ruta_dist:/usr/share/nginx/html nginx:alpine
+
+//crear nginx con dockerfile
+docker build . -t name_proyecto:latest
+
+//ejecutar el docker creado
+docker run -d -p 8080:80 name_proyecto:latest
 
