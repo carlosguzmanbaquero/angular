@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { ProductsService } from '../../../../core/services/product/products.service';
-import { Product } from 'src/app/model/product.model';
+import { ProductsService } from '@core/services/product/products.service';
+import { Product } from '@model/product.model';
+import { switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import * as FileSaver from 'file-saver';
 
 
 @Component({
@@ -11,7 +14,7 @@ import { Product } from 'src/app/model/product.model';
 })
 export class ProductDetailComponent implements OnInit {
 
-  product: Product;
+  product$: Observable<Product>;
 
   constructor(
     private route: ActivatedRoute,
@@ -19,16 +22,18 @@ export class ProductDetailComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params) => {
-      const id = params.id;
-      this.fetchProduct(id);
-    });
+    this.product$ = this.route.params
+    .pipe(
+      switchMap((params: Params) => {
+       return this.productsService.getProduct(params.id);
+      })
+    );
   }
 
   fetchProduct(id: string){
     this.productsService.getProduct(id)
     .subscribe(product => {
-      this.product = product;
+    //  this.product = product;
     });
   }
 
@@ -65,6 +70,30 @@ export class ProductDetailComponent implements OnInit {
     .subscribe(result => {
       console.log(result);
     });
+  }
+
+  getRandomUsers(){
+    this.productsService.getRandomUsers()
+    .subscribe(users => {
+      console.log(users);
+    },
+      error => {
+        console.error(error);
+      }
+    );
+  }
+
+  getFile(){
+    this.productsService.getFile()
+    .subscribe(content => {
+      //console.log(content);
+      let blob = new Blob([content], {type: 'text/plain;charset=utf-8'});
+      FileSaver.saveAs(blob, 'archivo.txt');
+    },
+      error => {
+        console.error(error);
+      }
+    );
   }
 
 }

@@ -94,5 +94,11 @@ npm i -g @angular/cli@latest
 //actualizar las versiones del proyecto
 ng update
 
+//instalar sentry
+npm i @sentry/browser --save
+
+//file-saver archivos
+npm install file-saver --save
+
 
 

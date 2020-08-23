@@ -1,7 +1,16 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Product } from '../../../model/product.model';
-import { environment } from './../../../../environments/environment';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Product } from '@model/product.model';
+import { environment } from '@environments/environment';
+import { Observable, throwError } from 'rxjs';
+import { map, catchError, retry } from 'rxjs/operators';
+import * as Sentry from '@sentry/browser';
+
+interface UserP{
+  email: string;
+  gender: string;
+  phone: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -59,24 +68,57 @@ export class ProductsService {
   ) { }
 
   getAllProducts(){
-    //return this.products;
-    return this.http.get<Product[]>(`${environment.url_api}/products/`);
+    return this.http.get<Product[]>(`${environment.url_api}/products/`)
+    .pipe(
+      catchError(this.handleError),
+    );
   }
 
   getProduct(id: string){
-    //return this.products.find(item => id === item.id);
-    return this.http.get<Product>(`${environment.url_api}/products/${id}`);
+    return this.http.get<Product>(`${environment.url_api}/products/${id}`)
+    .pipe(
+      catchError(this.handleError),
+    );
   }
 
   createProduct(product: Product){
-    return this.http.post(`${environment.url_api}/products/`, product);
+    return this.http.post(`${environment.url_api}/products/`, product)
+    .pipe(
+      catchError(this.handleError),
+    );
   }
 
   updateProduct(id: string, changes: Partial<Product>){
-    return this.http.put(`${environment.url_api}/products/${id}`, changes);
+    return this.http.put(`${environment.url_api}/products/${id}`, changes)
+    .pipe(
+      catchError(this.handleError),
+    );
   }
 
   deleteProduct(id: string){
-    return this.http.delete(`${environment.url_api}/products/${id}`);
+    return this.http.delete(`${environment.url_api}/products/${id}`)
+    .pipe(
+      catchError(this.handleError),
+    );
+  }
+
+  // Tipado en peticiones
+  getRandomUsers(): Observable<UserP[]>{
+    return this.http.get('https://raandomuser.me/api/?results=2')
+    .pipe(
+      retry(2),
+      catchError(this.handleError),
+      map((respone: any) => respone.results as UserP[])
+    );
+  }
+
+  getFile(){
+    return this.http.get('assets/files/prueba.txt', {responseType: 'text'});
+  }
+
+  private handleError(error: HttpErrorResponse){
+    console.log(error);
+    Sentry.captureException(error);
+    return throwError('Error al comunicarse con el webservice');
   }
 }

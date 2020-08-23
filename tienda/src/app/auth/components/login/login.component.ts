@@ -37,6 +37,16 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  login2() {
+    if (this.form.valid) {
+      const value = this.form.value;
+      this.authService.loginRestApi(value.email, value.password)
+      .subscribe( data => {
+        console.log(data);
+      });
+    }
+  }
+
   private buildForm() {
     this.form = this.formBuilder.group({
       email: ['', [Validators.required]],
