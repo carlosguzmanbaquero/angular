@@ -100,5 +100,14 @@ npm i @sentry/browser --save
 //file-saver archivos
 npm install file-saver --save
 
+//pruebas unitarias
+ng test
+
+//pruebas unitarias con reporte
+ng test --watch=false --codeCoverage=true
+
+//ejecutar el reporte generado coverage
+http-server coverage/name_reporte
+
 
 
