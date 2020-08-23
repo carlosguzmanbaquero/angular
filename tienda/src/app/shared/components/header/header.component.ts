@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
 
   this.numItems$ = this.cartService.cart$
     .pipe(
-      map(products => products.length)
+      map((products: any) => products.length)
     );
   }
 

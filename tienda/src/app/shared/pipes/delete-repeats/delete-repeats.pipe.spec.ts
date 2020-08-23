@@ -1,8 +1,8 @@
-import { DeleteRepeats } from './delete-repeats.pipe';
+import { DeleteRepeatsPipe } from './delete-repeats.pipe';
 
 describe('DeleteRepeats', () => {
   it('create an instance', () => {
-    const pipe = new DeleteRepeats();
+    const pipe = new DeleteRepeatsPipe();
     expect(pipe).toBeTruthy();
   });
 });
