@@ -6,6 +6,8 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProductsListComponent } from './components/products-list/products-list.component';
 import { FormProductComponent } from './components/form-product/form-product.component';
 import { ProductEditComponent } from './components/product-edit/product-edit.component';
+import { PdfComponent } from './components/pdf/pdf.component';
+import { DatesComponent } from './components/dates/dates.component';
 
 
 const routes: Routes = [
@@ -32,6 +34,14 @@ const routes: Routes = [
       {
         path: 'products/edit/:id',
         component: ProductEditComponent
+      },
+      {
+        path: 'pdf',
+        component: PdfComponent
+      },
+      {
+        path: 'dates',
+        component: DatesComponent
       },
     ]
   }

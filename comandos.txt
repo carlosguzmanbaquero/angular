@@ -124,3 +124,17 @@ docker build . -t name_proyecto:latest
 //ejecutar el docker creado
 docker run -d -p 8080:80 name_proyecto:latest
 
+//instalar webpack
+npm install webpack-bundle-analyzer --save-dev
+
+//generar archivo de estadisticas
+ng build --prod --stats-json
+
+//generar analisis
+npx webpack-bundle-analyzer dist/my-project/stats.json
+
+
+
+
+
+
