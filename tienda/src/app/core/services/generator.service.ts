@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { EmployeeData } from '../../model/employee.model';
+import { interval } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,9 @@ export class GeneratorService {
       label: this.generateLabel(labels),
       num: this.generateNumber(numRange)
     };
+  }
+
+  getData(){
+    return interval(2000);
   }
 }

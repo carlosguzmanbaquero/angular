@@ -11,6 +11,7 @@ import { DeleteRepeatsPipe } from './pipes/delete-repeats/delete-repeats.pipe';
 import { RepeatNumberPipe } from './pipes/repeat-number/repeat-number.pipe';
 import { GroupProductsPipe } from './pipes/group-products/group-products.pipe';
 import { QuicklinkModule } from 'ngx-quicklink';
+import { FibonacciPipe } from './pipes/fibonacci/fibonacci.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { QuicklinkModule } from 'ngx-quicklink';
     FooterComponent,
     DeleteRepeatsPipe,
     RepeatNumberPipe,
-    GroupProductsPipe
+    GroupProductsPipe,
+    FibonacciPipe
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { QuicklinkModule } from 'ngx-quicklink';
     FooterComponent,
     DeleteRepeatsPipe,
     RepeatNumberPipe,
-    GroupProductsPipe
+    GroupProductsPipe,
+    FibonacciPipe
   ]
 })
 export class SharedModule { }

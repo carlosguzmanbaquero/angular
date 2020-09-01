@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { GeneratorService } from './../../../../core/services/generator.service';
 import { EmployeeData } from './../../../../model/employee.model'
+import { Observable, Subscription } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 
 const names = ['carlos', 'alberto', 'carolina', 'maria'];
@@ -10,16 +12,37 @@ const names = ['carlos', 'alberto', 'carolina', 'maria'];
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent implements OnInit, OnDestroy {
 
   salesList: EmployeeData[] = [];
   developeList: EmployeeData[] = [];
 
-  constructor(private generatorService: GeneratorService) { }
+  //value: number;
+
+  //sub$: Subscription;
+
+  value$: Observable<number>;
+
+  constructor(private generatorService: GeneratorService) {
+    this.value$ = this.generatorService.getData()
+    .pipe(
+      tap(value => {
+      console.log('llamado generateData');
+      })
+    );
+   }
 
   ngOnInit(): void {
     this.salesList = this.generatorService.generate(names, [10, 16], 10);
     this.developeList = this.generatorService.generate(names, [10, 16], 10);
+    
+    /*
+    this.sub$ = this.generatorService.getData()
+    .subscribe(value => {
+      this.value = value;
+      console.log('value interval');
+    });
+    */
   }
 
   addItem(list: EmployeeData[], label: string){
@@ -27,6 +50,11 @@ export class LayoutComponent implements OnInit {
       label,
       num: this.generatorService.generateNumber([10, 16])
     });
+  }
+
+  ngOnDestroy(){
+    console.log('onDestroy');
+    //this.sub$.unsubscribe();
   }
 
 }
