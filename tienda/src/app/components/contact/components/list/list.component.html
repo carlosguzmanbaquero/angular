@@ -7,9 +7,10 @@
         <h3 matLine>
             {{ item.label }}
         </h3>
-        <mat-chip>
-            {{ item.num }}
-        </mat-chip>
+        <mat-chip-list>
+            <div class="chip">{{ calc(item) }}</div>
+            
+        </mat-chip-list>
         <button mat-raised-button>
             <mat-icon>delete</mat-icon>
         </button>

@@ -30,3 +30,4 @@ export class GeneratorService {
       num: this.generateNumber(numRange)
     };
   }
+}
