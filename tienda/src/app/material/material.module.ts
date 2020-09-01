@@ -16,6 +16,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatStepperModule } from '@angular/material/stepper';
+import { MatChipsModule } from '@angular/material/chips';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatPaginatorModule,
     MatSortModule,
     MatStepperModule,
+    MatChipsModule
     
   ],
   exports: [
@@ -58,6 +60,7 @@ import { MatStepperModule } from '@angular/material/stepper';
     MatPaginatorModule,
     MatSortModule,
     MatStepperModule,
+    MatChipsModule
     
   ]
 })

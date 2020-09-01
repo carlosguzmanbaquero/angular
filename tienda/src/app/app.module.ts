@@ -15,6 +15,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '@environments/environment';
 import * as Sentry from '@sentry/browser';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import { QuicklinkModule } from 'ngx-quicklink';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 Sentry.init({
   dsn: 'https://d9e3d5cc94d24255a3b129e0e08ebc21@o437776.ingest.sentry.io/5400748',
@@ -34,7 +36,7 @@ Sentry.init({
     LayoutComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     FormsModule,
     CoreModule,
@@ -43,7 +45,9 @@ Sentry.init({
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    QuicklinkModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     {

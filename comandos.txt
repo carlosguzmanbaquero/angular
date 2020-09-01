@@ -133,8 +133,27 @@ ng build --prod --stats-json
 //generar analisis
 npx webpack-bundle-analyzer dist/my-project/stats.json
 
+//instalar ngx-quicklink
+npm i ngx-quicklink --save
 
+//instalar guessjs
+npm un @angular-builders/custom-webpack guess-parser guess-webpack --save
+npm install guess-webpack
+npm install guess-parser
 
+//convertir proyecto a pwa
+ng add @angular/pwa --project *project-name*
 
+//instalar http-server
+npm install http-server -g
+
+//ejecutar http-server
+http-server dist/proyect_name
+
+//server side rendering
+ng add @nguniversal/express-engine
+
+//generar el build y ejecutar servidor
+npm run build:ssr && npm run serve:ssr
 
 

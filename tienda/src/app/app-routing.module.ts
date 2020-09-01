@@ -3,6 +3,7 @@ import { Routes, RouterModule, PreloadAllModules} from '@angular/router';
 import { LayoutComponent } from './components/layout/layout.component';
 import { AdminGuard } from './guards/admin.guard';
 import { PreloadService } from './core/services/preload.service';
+import { QuicklinkStrategy } from 'ngx-quicklink';
 
 const routes: Routes = [
   {
@@ -60,8 +61,10 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
     // preloadingStrategy: PreloadAllModules
-    preloadingStrategy: PreloadService
-  })],
+    // preloadingStrategy: PreloadService
+    preloadingStrategy: QuicklinkStrategy,
+    initialNavigation: 'enabled'
+})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

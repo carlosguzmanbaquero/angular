@@ -10,7 +10,7 @@ import { MaterialModule } from '../material/material.module';
 import { DeleteRepeatsPipe } from './pipes/delete-repeats/delete-repeats.pipe';
 import { RepeatNumberPipe } from './pipes/repeat-number/repeat-number.pipe';
 import { GroupProductsPipe } from './pipes/group-products/group-products.pipe';
-
+import { QuicklinkModule } from 'ngx-quicklink';
 
 @NgModule({
   declarations: [
@@ -24,6 +24,7 @@ import { GroupProductsPipe } from './pipes/group-products/group-products.pipe';
   ],
   imports: [
     CommonModule,
+    QuicklinkModule,
     RouterModule,
     MaterialModule,
     ReactiveFormsModule
