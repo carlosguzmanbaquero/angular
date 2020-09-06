@@ -6,7 +6,7 @@ import {
     // OnChanges,
     // SimpleChanges,
     OnInit,
-    DoCheck,
+    //DoCheck,
     OnDestroy
 } from '@angular/core';
 
@@ -20,7 +20,7 @@ import { CartService } from '@core/services/cart/cart.service';
 })
 export class ProductComponent implements
     // OnChanges,
-    DoCheck,
+    //DoCheck,
     OnInit,
     OnDestroy{
 
@@ -44,10 +44,11 @@ export class ProductComponent implements
     ngOnInit(){
         console.log('ngOnInit');
     }
-
+/*
     ngDoCheck(){
         console.log('ngDoCheck');
     }
+    */
 
     ngOnDestroy(){
         console.log('ngOnDestroy');

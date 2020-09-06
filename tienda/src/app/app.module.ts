@@ -12,6 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+
+
 import { environment } from '@environments/environment';
 import * as Sentry from '@sentry/browser';
 import { AuthInterceptor } from './auth/auth.interceptor';
@@ -46,6 +50,8 @@ Sentry.init({
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFireStorageModule,
+    AngularFireMessagingModule,
+    AngularFirestoreModule,
     QuicklinkModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],

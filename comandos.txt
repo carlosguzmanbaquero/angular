@@ -156,4 +156,10 @@ ng add @nguniversal/express-engine
 //generar el build y ejecutar servidor
 npm run build:ssr && npm run serve:ssr
 
+//instalar lighthouse
+npm install -g lighthouse
+
+//ejecutar lighthouse
+lighthouse url app
+
 
